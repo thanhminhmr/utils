@@ -23,7 +23,7 @@
 	<packaging>jar</packaging>
 
 	<groupId>mrmathami</groupId>
-	<artifactId>utils</artifactId>
+	<artifactId>mrmathami.utils</artifactId>
 	<version>1.0.0</version>
 
 	<dependencies>
@@ -108,20 +108,10 @@
 							<goal>install-file</goal>
 						</goals>
 						<configuration>
-							<file>
-								${project.basedir}/build/target-${project.build.finalName}/${project.build.finalName}.jar
-							</file>
-							<sources>
-								${project.basedir}/build/target-${project.build.finalName}/${project.build.finalName}-sources.jar
-							</sources>
+							<file>${project.build.sourceDirectory}/${project.build.finalName}.jar</file>
+							<sources>${project.build.sourceDirectory}/${project.build.finalName}-sources.jar</sources>
 
 							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
-
-							<groupId>${project.groupId}</groupId>
-							<artifactId>${project.artifactId}</artifactId>
-							<version>${project.version}</version>
-
-							<packaging>${project.packaging}</packaging>
 
 							<localRepositoryPath>repository</localRepositoryPath>
 						</configuration>

@@ -23,7 +23,7 @@
 	<packaging>jar</packaging>
 
 	<groupId>mrmathami</groupId>
-	<artifactId>utils</artifactId>
+	<artifactId>mrmathami.utils</artifactId>
 	<version>1.0.0</version>
 
 	<name>MrMaThaMi's utilities</name>
