@@ -116,6 +116,19 @@
 							<localRepositoryPath>repository</localRepositoryPath>
 						</configuration>
 					</execution>
+					<execution>
+						<id>install-local</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${project.build.directory}/${project.build.finalName}.jar</file>
+							<sources>${project.build.directory}/${project.build.finalName}-sources.jar</sources>
+
+							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
