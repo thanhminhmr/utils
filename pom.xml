@@ -24,7 +24,7 @@
 
 	<groupId>mrmathami</groupId>
 	<artifactId>mrmathami.utils</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<dependencies>
 		<dependency>
@@ -108,8 +108,8 @@
 							<goal>install-file</goal>
 						</goals>
 						<configuration>
-							<file>${project.build.sourceDirectory}/${project.build.finalName}.jar</file>
-							<sources>${project.build.sourceDirectory}/${project.build.finalName}-sources.jar</sources>
+							<file>${project.build.directory}/${project.build.finalName}.jar</file>
+							<sources>${project.build.directory}/${project.build.finalName}-sources.jar</sources>
 
 							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
 

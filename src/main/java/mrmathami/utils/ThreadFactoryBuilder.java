@@ -27,12 +27,15 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class ThreadFactoryBuilder {
+
 	@Nonnull private static final AtomicLong COUNT = new AtomicLong(0);
+
+	@Nullable private ThreadFactory backingThreadFactory = null;
 	@Nullable private String namePrefix = null;
 	@Nullable private Boolean daemon = null;
 	@Nullable private Integer priority = null;
-	@Nullable private ThreadFactory backingThreadFactory = null;
 	@Nullable private UncaughtExceptionHandler uncaughtExceptionHandler = null;
+	@Nullable private ClassLoader contextClassLoader = null;
 
 	@Nonnull
 	private static ThreadFactory build(@Nonnull ThreadFactoryBuilder builder) {
@@ -48,6 +51,7 @@ public final class ThreadFactoryBuilder {
 		final Boolean daemon = builder.daemon;
 		final Integer priority = builder.priority;
 		final UncaughtExceptionHandler uncaughtExceptionHandler = builder.uncaughtExceptionHandler;
+		final ClassLoader contextClassLoader = builder.contextClassLoader;
 
 		return runnable -> {
 			Thread thread = backingThreadFactory.newThread(runnable);
@@ -55,8 +59,15 @@ public final class ThreadFactoryBuilder {
 			if (daemon != null) thread.setDaemon(daemon);
 			if (priority != null) thread.setPriority(priority);
 			if (uncaughtExceptionHandler != null) thread.setUncaughtExceptionHandler(uncaughtExceptionHandler);
+			if (contextClassLoader != null) thread.setContextClassLoader(contextClassLoader);
 			return thread;
 		};
+	}
+
+	@Nonnull
+	public ThreadFactoryBuilder setBackingThreadFactory(@Nullable ThreadFactory backingThreadFactory) {
+		this.backingThreadFactory = backingThreadFactory;
+		return this;
 	}
 
 	@Nonnull
@@ -85,8 +96,8 @@ public final class ThreadFactoryBuilder {
 	}
 
 	@Nonnull
-	public ThreadFactoryBuilder setThreadFactory(@Nullable ThreadFactory backingThreadFactory) {
-		this.backingThreadFactory = backingThreadFactory;
+	public ThreadFactoryBuilder setContextClassLoader(@Nullable ClassLoader contextClassLoader) {
+		this.contextClassLoader = contextClassLoader;
 		return this;
 	}
 
@@ -94,4 +105,5 @@ public final class ThreadFactoryBuilder {
 	public ThreadFactory build() {
 		return build(this);
 	}
+
 }
