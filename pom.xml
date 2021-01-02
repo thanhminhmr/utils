@@ -24,7 +24,7 @@
 
 	<groupId>mrmathami</groupId>
 	<artifactId>mrmathami.utils</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 
 	<dependencies>
 		<dependency>
@@ -114,19 +114,6 @@
 							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
 
 							<localRepositoryPath>repository</localRepositoryPath>
-						</configuration>
-					</execution>
-					<execution>
-						<id>install-local</id>
-						<phase>install</phase>
-						<goals>
-							<goal>install-file</goal>
-						</goals>
-						<configuration>
-							<file>${project.build.directory}/${project.build.finalName}.jar</file>
-							<sources>${project.build.directory}/${project.build.finalName}-sources.jar</sources>
-
-							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
 						</configuration>
 					</execution>
 				</executions>
