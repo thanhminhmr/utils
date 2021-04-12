@@ -24,19 +24,19 @@
 
 	<groupId>mrmathami</groupId>
 	<artifactId>mrmathami.utils</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava-testlib</artifactId>
-			<version>30.0-jre</version>
+			<version>30.1.1-jre</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -111,7 +111,7 @@
 							<file>${project.build.directory}/${project.build.finalName}.jar</file>
 							<sources>${project.build.directory}/${project.build.finalName}-sources.jar</sources>
 
-							<pomFile>${project.basedir}/pom-no-build.xml</pomFile>
+							<pomFile>${project.basedir}/pom-no-build.txt</pomFile>
 
 							<localRepositoryPath>repository</localRepositoryPath>
 						</configuration>
