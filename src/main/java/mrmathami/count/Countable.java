@@ -16,11 +16,26 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package mrmathami.annotations;
+package mrmathami.count;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+public interface Countable {
+	int getCount();
 
-@Retention(RetentionPolicy.SOURCE)
-public @interface Nullable {
+	int setCount(int count);
+
+	default int increaseCount() {
+		return setCount(getCount() + 1);
+	}
+
+	default int decreaseCount() {
+		return setCount(getCount() - 1);
+	}
+
+	default int addCount(int value) {
+		return setCount(getCount() + value);
+	}
+
+	default int subtractCount(int value) {
+		return setCount(getCount() - value);
+	}
 }

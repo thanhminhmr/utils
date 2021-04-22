@@ -16,51 +16,52 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package mrmathami.collections;
+package mrmathami.count;
 
-import mrmathami.annotations.Nonnull;
+public abstract class AbstractCounter implements Countable {
+	private int count;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.function.Predicate;
-
-import static mrmathami.collections.ImmutableCollections.up;
-
-abstract class AbstractImmutableCollection<E> implements Collection<E> {
-
-	@Override
-	public final boolean add(@Nonnull E element) {
-		throw up();
+	public AbstractCounter(int count) {
+		this.count = count;
 	}
 
 	@Override
-	public final boolean remove(@Nonnull Object object) {
-		throw up();
+	public final int getCount() {
+		return count;
 	}
 
 	@Override
-	public final boolean addAll(@Nonnull Collection<? extends E> collection) {
-		throw up();
+	public final int setCount(int count) {
+		final int oldCount = this.count;
+		this.count = count;
+		return oldCount;
 	}
 
 	@Override
-	public final boolean retainAll(@Nonnull Collection<?> collection) {
-		throw up();
+	public final int increaseCount() {
+		final int oldCount = this.count;
+		this.count += 1;
+		return oldCount;
 	}
 
 	@Override
-	public final boolean removeAll(@Nonnull Collection<?> collection) {
-		throw up();
+	public final int decreaseCount() {
+		final int oldCount = this.count;
+		this.count -= 1;
+		return oldCount;
 	}
 
 	@Override
-	public final void clear() {
-		throw up();
+	public final int addCount(int value) {
+		final int oldCount = this.count;
+		this.count += value;
+		return oldCount;
 	}
 
 	@Override
-	public final boolean removeIf(@Nonnull Predicate<? super E> filter) {
-		throw up();
+	public final int subtractCount(int value) {
+		final int oldCount = this.count;
+		this.count -= value;
+		return oldCount;
 	}
-
 }

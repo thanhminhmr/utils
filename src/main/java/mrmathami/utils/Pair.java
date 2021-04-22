@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Mai Thanh Minh (a.k.a. thanhminhmr or mrmathami)
+ * Copyright (C) 2020-2021 Mai Thanh Minh (a.k.a. thanhminhmr or mrmathami)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,7 +25,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public interface Pair<A, B> extends Serializable, Cloneable {
-
 	@Nonnull
 	static <A, B> Pair<A, B> mutableOf(A a, B b) {
 		return new MutablePair<>(a, b);
@@ -106,9 +105,9 @@ final class MutablePair<A, B> implements Pair<A, B> {
 		return this.b = b;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Nonnull
 	@Override
+	@SuppressWarnings("unchecked")
 	public final MutablePair<A, B> clone() {
 		try {
 			return (MutablePair<A, B>) super.clone();
@@ -177,9 +176,9 @@ final class ImmutablePair<A, B> implements Pair<A, B> {
 		throw new UnsupportedOperationException("Immutable pair can't be modified.");
 	}
 
-	@SuppressWarnings("unchecked")
 	@Nonnull
 	@Override
+	@SuppressWarnings("unchecked")
 	public ImmutablePair<A, B> clone() {
 		try {
 			return (ImmutablePair<A, B>) super.clone();

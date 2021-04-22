@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Mai Thanh Minh (a.k.a. thanhminhmr or mrmathami)
+ * Copyright (C) 2020-2021 Mai Thanh Minh (a.k.a. thanhminhmr or mrmathami)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,6 +21,7 @@ package mrmathami.utils;
 import mrmathami.annotations.Nonnull;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public final class ArrayUtils {
@@ -163,63 +164,91 @@ public final class ArrayUtils {
 
 
 	public static void shuffle(@Nonnull boolean[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull byte[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull char[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull double[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull float[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull int[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull long[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
-		for (int i = array.length - 1; i > 0; i--) {
-			swap0(array, random.nextInt(i + 1), i);
-		}
+		shuffle(array, ThreadLocalRandom.current());
 	}
 
 	public static void shuffle(@Nonnull short[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
+		shuffle(array, ThreadLocalRandom.current());
+	}
+
+	public static <E> void shuffle(@Nonnull E[] array) {
+		shuffle(array, ThreadLocalRandom.current());
+	}
+
+
+	public static void shuffle(@Nonnull boolean[] array, @Nonnull Random random) {
 		for (int i = array.length - 1; i > 0; i--) {
 			swap0(array, random.nextInt(i + 1), i);
 		}
 	}
 
-	public static <E> void shuffle(@Nonnull E[] array) {
-		final ThreadLocalRandom random = ThreadLocalRandom.current();
+	public static void shuffle(@Nonnull byte[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull char[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull double[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull float[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull int[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull long[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static void shuffle(@Nonnull short[] array, @Nonnull Random random) {
+		for (int i = array.length - 1; i > 0; i--) {
+			swap0(array, random.nextInt(i + 1), i);
+		}
+	}
+
+	public static <E> void shuffle(@Nonnull E[] array, @Nonnull Random random) {
 		for (int i = array.length - 1; i > 0; i--) {
 			swap0(array, random.nextInt(i + 1), i);
 		}
