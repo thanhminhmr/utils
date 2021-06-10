@@ -49,20 +49,16 @@ public interface Pair<A, B> extends Serializable, Cloneable {
 
 	A setA(A a) throws UnsupportedOperationException;
 
-	A setGetA(A a) throws UnsupportedOperationException;
-
 	B getB();
 
 	B setB(B b) throws UnsupportedOperationException;
-
-	B setGetB(B b) throws UnsupportedOperationException;
 
 	@Nonnull
 	Pair<A, B> clone();
 }
 
 final class MutablePair<A, B> implements Pair<A, B> {
-	private static final long serialVersionUID = 3329068140030524856L;
+	private static final long serialVersionUID = -1L;
 	private A a;
 	private B b;
 
@@ -84,11 +80,6 @@ final class MutablePair<A, B> implements Pair<A, B> {
 	}
 
 	@Override
-	public A setGetA(A a) {
-		return this.a = a;
-	}
-
-	@Override
 	public final B getB() {
 		return b;
 	}
@@ -98,11 +89,6 @@ final class MutablePair<A, B> implements Pair<A, B> {
 		final B oldB = this.b;
 		this.b = b;
 		return oldB;
-	}
-
-	@Override
-	public B setGetB(B b) {
-		return this.b = b;
 	}
 
 	@Nonnull
@@ -137,7 +123,7 @@ final class MutablePair<A, B> implements Pair<A, B> {
 }
 
 final class ImmutablePair<A, B> implements Pair<A, B> {
-	private static final long serialVersionUID = 6120253641955548765L;
+	private static final long serialVersionUID = -1L;
 	private final A a;
 	private final B b;
 
@@ -157,22 +143,12 @@ final class ImmutablePair<A, B> implements Pair<A, B> {
 	}
 
 	@Override
-	public A setGetA(A a) throws UnsupportedOperationException {
-		throw new UnsupportedOperationException("Immutable pair can't be modified.");
-	}
-
-	@Override
 	public final B getB() {
 		return b;
 	}
 
 	@Override
 	public final B setB(B b) throws UnsupportedOperationException {
-		throw new UnsupportedOperationException("Immutable pair can't be modified.");
-	}
-
-	@Override
-	public B setGetB(B b) throws UnsupportedOperationException {
 		throw new UnsupportedOperationException("Immutable pair can't be modified.");
 	}
 

@@ -50,7 +50,7 @@ import static mrmathami.collections.ImmutableCollections.up;
  */
 public final class ImmutableOrderedMap<K, V> extends AbstractImmutableMap<K, V> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1L;
 
 	@Nonnull private final Object[] objects;
 
@@ -415,6 +415,7 @@ public final class ImmutableOrderedMap<K, V> extends AbstractImmutableMap<K, V> 
 			if (!(object instanceof Set)) return false;
 			final Set<?> set = (Set<?>) object;
 			if (set.size() != pointers.length) return false;
+			//noinspection SuspiciousMethodCalls
 			return set.containsAll(this);
 		}
 
@@ -530,7 +531,7 @@ public final class ImmutableOrderedMap<K, V> extends AbstractImmutableMap<K, V> 
 			if (pointers.length == 0) return "[]";
 			final StringBuilder builder = new StringBuilder();
 			for (int i = 0; i < pointers.length; i++) {
-				builder.append(i > 0 ? ", " : "[").append(valueAt(i).toString());
+				builder.append(i > 0 ? ", " : "[").append(valueAt(i));
 			}
 			return builder.append(']').toString();
 		}

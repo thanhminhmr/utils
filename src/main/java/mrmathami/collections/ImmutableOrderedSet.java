@@ -46,7 +46,7 @@ import static mrmathami.collections.ImmutableCollections.up;
  */
 public final class ImmutableOrderedSet<E> extends AbstractImmutableCollection<E> implements Set<E>, Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1L;
 
 	@Nonnull private final Object[] objects;
 
@@ -118,7 +118,7 @@ public final class ImmutableOrderedSet<E> extends AbstractImmutableCollection<E>
 	@Nonnull
 	@Override
 	public Iterator<E> iterator() {
-		return new Iterator<E>() {
+		return new Iterator<>() {
 
 			private int index = 0;
 
@@ -207,6 +207,7 @@ public final class ImmutableOrderedSet<E> extends AbstractImmutableCollection<E>
 		if (!(object instanceof Set)) return false;
 		final Set<?> set = (Set<?>) object;
 		if (set.size() != pointers.length) return false;
+		//noinspection SuspiciousMethodCalls
 		return set.containsAll(this);
 	}
 

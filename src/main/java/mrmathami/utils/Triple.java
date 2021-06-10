@@ -64,7 +64,7 @@ public interface Triple<A, B, C> extends Serializable, Cloneable {
 }
 
 final class MutableTriple<A, B, C> implements Triple<A, B, C> {
-	private static final long serialVersionUID = 4891537451739231035L;
+	private static final long serialVersionUID = -1L;
 	private A a;
 	private B b;
 	private C c;
@@ -143,7 +143,7 @@ final class MutableTriple<A, B, C> implements Triple<A, B, C> {
 }
 
 final class ImmutableTriple<A, B, C> implements Triple<A, B, C> {
-	private static final long serialVersionUID = 9081974091400750542L;
+	private static final long serialVersionUID = -1L;
 	private final A a;
 	private final B b;
 	private final C c;

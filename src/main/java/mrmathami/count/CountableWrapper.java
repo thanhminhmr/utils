@@ -64,7 +64,7 @@ public interface CountableWrapper<E> extends Countable, Serializable, Cloneable 
 }
 
 final class MutableCountableWrapper<E> extends AbstractCounter implements CountableWrapper<E> {
-	private static final long serialVersionUID = -1105717636543457327L;
+	private static final long serialVersionUID = -1L;
 	private E value;
 
 	MutableCountableWrapper(E value, int count) {
@@ -116,7 +116,7 @@ final class MutableCountableWrapper<E> extends AbstractCounter implements Counta
 }
 
 final class ImmutableCountableWrapper<E> extends AbstractCounter implements CountableWrapper<E> {
-	private static final long serialVersionUID = 8286892749668482344L;
+	private static final long serialVersionUID = -1L;
 	private final E value;
 
 	ImmutableCountableWrapper(E value, int count) {

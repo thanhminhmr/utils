@@ -23,6 +23,8 @@ import mrmathami.annotations.Nonnull;
 import java.io.Serializable;
 
 public final class Counter extends AbstractCounter implements Serializable, Cloneable {
+	private static final long serialVersionUID = -1L;
+
 	public Counter(int count) {
 		super(count);
 	}
